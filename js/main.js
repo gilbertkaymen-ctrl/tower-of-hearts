@@ -159,7 +159,7 @@
       },
       {
         name: 'Hailee', x: -9, z: 27.5, rotY: 0.9,
-        opts: { skin: 0xffe6d8, hair: 0xe8c87a, top: 0xffffff, bottom: 0xffe6d8, dress: true, dressColor: 0xb49ae8, longHair: true, scale: 0.97, lashes: true, eyeColor: 0x4a76b8 },
+        opts: { skin: 0xffe6d8, hair: 0x221a16, top: 0xffffff, bottom: 0xffe6d8, dress: true, dressColor: 0xb49ae8, longHair: true, scale: 0.97, lashes: true, eyeColor: 0x241a14 },
         lines: [
           { name: 'Hailee', text: 'Oh my gosh, BEA! He showed us the tower plans — there’s a glowing heart on top, can you believe it?' },
           { name: 'Hailee', text: 'We all promised to keep it secret until you woke up. Surprise! Now go get your man.' }
