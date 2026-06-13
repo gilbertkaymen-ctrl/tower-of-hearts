@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bea &amp; the Tower of Hearts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="error-overlay" class="hidden"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="objective"><span class="obj-label">Objective</span><span id="objective-text"></span></div>
+  <div id="hearts" class="hidden">&#10084; <span id="heart-count">0/7</span></div>
+  <div id="fps"></div>
+</div>
+
+<div id="toast" class="hidden"></div>
+<div id="prompt" class="hidden"></div>
+
+<!-- Dialogue box -->
+<div id="dialogue" class="hidden">
+  <div id="dlg-name"></div>
+  <div id="dlg-text"></div>
+  <div id="dlg-next">&#9660;</div>
+</div>
+
+<div id="fade"></div>
+
+<!-- Title screen -->
+<div id="title-screen">
+  <div class="title-inner">
+    <div id="title-hearts">&#10084;</div>
+    <h1>Bea <span class="amp">&amp;</span> the<br>Tower of Hearts</h1>
+    <p class="subtitle">A love-fuelled adventure</p>
+    <button id="start-btn">Begin the Journey &#10084;</button>
+    <div class="controls-hint">
+      <span><b>WASD / Arrows</b> Move</span>
+      <span><b>Shift</b> Run</span>
+      <span><b>E</b> Talk / Interact</span>
+      <span><b>M</b> Mute</span>
+    </div>
+    <p class="dedication">for Beatrice &mdash; from Kaymen</p>
+  </div>
+</div>
+
+<!-- End screen -->
+<div id="end-screen" class="hidden">
+  <div class="end-inner">
+    <div class="end-heart">&#10084;</div>
+    <h2>Chapter One ~ Complete</h2>
+    <p id="end-text">
+      Bea crossed meadows, rivers and a whole dream to find him &mdash;<br>
+      and at the top of a tower built from love, she did.<br><br>
+      <span class="end-heart-small">&#10084;</span>
+    </p>
+    <button id="restart-btn">Play Again &#10084;</button>
+  </div>
+</div>
+
+<script src="js/lib/three.min.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/models.js"></script>
+<script src="js/characters.js"></script>
+<script src="js/world.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
