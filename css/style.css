@@ -20,6 +20,29 @@ canvas { display: block; }
   font: 13px/1.4 monospace; padding: 10px 14px; border-radius: 10px;
   white-space: pre-wrap;
 }
+/* friendly WebGL-help variant */
+#error-overlay.help {
+  inset: 0; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(160deg, #bfe6ff 0%, #ffd9ec 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', sans-serif; white-space: normal; padding: 20px;
+}
+#error-overlay.help .help-card {
+  background: rgba(255, 255, 255, .85); border-radius: 26px;
+  padding: 32px 30px; max-width: 460px; text-align: center;
+  box-shadow: 0 18px 50px rgba(216, 68, 122, .25); color: #6d5468;
+}
+#error-overlay.help .help-heart { font-size: 46px; color: #ff7ba2; animation: heartbeat 1.6s ease-in-out infinite; }
+#error-overlay.help h2 { color: #d8447a; font-size: 28px; font-weight: 800; margin: 8px 0 14px; }
+#error-overlay.help p { font-size: 16px; font-weight: 600; line-height: 1.5; margin: 0 0 14px; }
+#error-overlay.help .help-fix { background: #fff4f8; border-radius: 14px; padding: 12px 14px; color: #8a5a72; }
+#error-overlay.help .help-alt { font-size: 14px; color: #9a8294; }
+#error-overlay.help button {
+  margin-top: 8px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #ff8fb5, #ff6f9e); color: #fff;
+  font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 17px;
+  padding: 12px 30px; border-radius: 30px; box-shadow: 0 6px 16px rgba(255, 111, 158, .4);
+}
 
 /* ---------- HUD ---------- */
 #hud { position: fixed; inset: 0; pointer-events: none; z-index: 20; }

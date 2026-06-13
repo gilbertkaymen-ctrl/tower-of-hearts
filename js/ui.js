@@ -16,10 +16,33 @@ const UI = (() => {
     els.dialogue.addEventListener('click', advance);
 
     window.addEventListener('error', e => {
+      const msg = (e.message || '') + '';
+      if (/webgl|context/i.test(msg)) { showWebGLHelp(); return; }
       const ov = $('error-overlay');
       ov.classList.remove('hidden');
-      ov.textContent = 'Error: ' + e.message + '\n' + (e.filename || '') + ':' + (e.lineno || '');
+      ov.textContent = 'Error: ' + msg + '\n' + (e.filename || '') + ':' + (e.lineno || '');
     });
+  }
+
+  /* friendly, actionable message when the device can't start WebGL */
+  function showWebGLHelp() {
+    const ov = $('error-overlay');
+    if (!ov || ov.dataset.shown) return;
+    ov.dataset.shown = '1';
+    const title = $('title-screen');
+    if (title) title.style.display = 'none';
+    ov.className = 'help';
+    ov.innerHTML =
+      '<div class="help-card">' +
+      '<div class="help-heart">&#10084;</div>' +
+      '<h2>Almost there, Bea!</h2>' +
+      '<p>Your browser just needs <b>3D graphics</b> turned on to play.</p>' +
+      '<p class="help-fix"><b>Quick fix (Chrome):</b><br>' +
+      'Settings &rarr; System &rarr; turn on <b>“Use graphics acceleration when available”</b>, then reopen this page.</p>' +
+      '<p class="help-alt">Still stuck? Try a different browser (Chrome, Edge or Firefox), ' +
+      'or open it on a laptop/desktop instead of a phone. &#128156;</p>' +
+      '<button onclick="location.reload()">Try again &#10084;</button>' +
+      '</div>';
   }
 
   /* ---------- HUD ---------- */
@@ -105,6 +128,6 @@ const UI = (() => {
   return {
     init, showHUD, setObjective, setHearts, setFPS, toast,
     showPrompt, hidePrompt, startDialogue, advance, dialogueActive,
-    fadeIn, fadeOutWhite, hideTitle, showEnd
+    fadeIn, fadeOutWhite, hideTitle, showEnd, showWebGLHelp
   };
 })();

@@ -31,12 +31,31 @@
     'Reason #7: You never stop searching for the people you love.'
   ];
 
+  /* ----- robust WebGL renderer creation (some devices/browsers are picky) ----- */
+  function createRenderer() {
+    // Try a series of progressively simpler configs; the first that works wins.
+    const configs = [
+      { antialias: true, powerPreference: 'high-performance' },
+      { antialias: true },
+      { antialias: false },
+      { antialias: false, failIfMajorPerformanceCaveat: false }
+    ];
+    for (const cfg of configs) {
+      try {
+        const r = new THREE.WebGLRenderer(cfg);
+        if (r && r.getContext()) return r;
+      } catch (e) { /* try the next config */ }
+    }
+    return null;
+  }
+
   /* ================= INIT ================= */
   function init() {
     UI.init();
 
     if (THREE.ColorManagement) THREE.ColorManagement.legacyMode = false;
-    renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+    renderer = createRenderer();
+    if (!renderer) { UI.showWebGLHelp(); return; }   // friendly message instead of a crash
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.shadowMap.enabled = true;
